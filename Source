@@ -27,7 +27,7 @@ function PaperFramework:Init()
 	
 	if IsServer then
 		script.Server.Name = "PaperServer"
-		script.Server.Parent = game.ServerScriptService
+		script.Server.Parent = game:GetService("ServerScriptService")
 	end
 
 	for _, page in pairs(Pages) do
@@ -52,7 +52,7 @@ function PaperFramework:Start()
 	
 	for _, page in pairs(Pages) do
 		if type(page.Start) == "function" then
-			local success, err = pcall(page.Start)
+			local success, err = pcall(page.Start, page)
 			
 			if not success then
 				warn("[Paper] Error starting page", page.Name, ":", err)
@@ -145,14 +145,10 @@ end
 	You can store data in Paper's configuration table and use it for your pages.
 ]]
 function PaperFramework:Write(configName : string, configValue)
-	local config = Config[configName]
-	
-	if not config then
-		Config[configName] = configValue
-		
+	if Config[configName] ~= nil then
+		warn("[Paper] Config", configName, "already exists.")
 		return
 	end
-	
 	Config[configName] = configValue
 end
 
