@@ -1,6 +1,3 @@
-local a = "hi"
-
---[[
 
 	Welcome to Paper Framework!
 
@@ -110,5 +107,3 @@ local a = "hi"
 --------------------------------------------------------------------------------------
 
 > Paper Framework Alpha
-
-]]
