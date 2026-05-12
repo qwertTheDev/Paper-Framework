@@ -2,6 +2,8 @@ local Page = {
 	Name = "Template"
 }
 
+--[[
+
 	Paper Framework - Template Page
 
 	This is a reference Page to help you understand how Pages work.
@@ -39,7 +41,7 @@ local Page = {
 
 	function Page:Init(Paper)
 		self.Paper = Paper
-		self.Network = Paper:Use("Network")
+		self.Network = Paper:Read("Network")
 	end
 
 --------------------------------------------------------------------------------------
@@ -69,6 +71,7 @@ local Page = {
 --------------------------------------------------------------------------------------
 
 	Use this template as a base when creating your own Pages.  
+]]
 
 function Page:Init(paper)
 	self.Paper = paper
