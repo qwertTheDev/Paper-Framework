@@ -153,7 +153,7 @@ function PaperFramework:Write(configName : string, configValue)
 end
 
 function PaperFramework:ReadConfig(configName : string)
-	if not Config[configName] then
+	if Config[configName] == nil then
 		warn("[Paper] Config not found:", configName)
 		return
 	end
