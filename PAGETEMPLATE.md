@@ -35,3 +35,24 @@ A reference to Paper will be passed through the Init function, allowing you to u
         end
 This doesn't occur in the Start function.
 
+## Page example
+
+        local Page = {
+            Name = "Console"
+        }
+
+        function Page:Init(paper)
+            self.Paper = paper
+            self.Signal = self.Paper:Read("Signal")
+        end
+
+        function Page:Start()
+            print("console.log("i don't know javascript")")
+            
+            self.Signal:Create("onLarped", function()
+                warn("Larping detected")
+            end)
+        end
+
+        return Page
+
