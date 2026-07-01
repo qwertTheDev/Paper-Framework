@@ -29,9 +29,9 @@ Just like pages in a notebook, each one contains a piece of your game. Together,
 Paper manages your structure so you don’t have to wire everything manually.
 
 ### The Paper way of things
-1. Register pages — Paper discovers all your Modules (Pages).
-2. Initialize — dependencies are prepared and linked.
-3. Start — your game logic runs.
+1. Register pages - Paper discovers all your Modules (Pages).
+2. Initialize - dependencies are prepared and linked.
+3. Start - your game logic runs.
 
 That’s it. No extra setup steps needed.
 
