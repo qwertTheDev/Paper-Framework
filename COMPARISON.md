@@ -7,4 +7,5 @@
 
 ## Paper Framework
 <img width="615" height="119" alt="image" src="https://github.com/user-attachments/assets/75771b47-935b-4edb-8bbe-c3abc2076b36" />
+
 > Pages automatically receive the `paper` object during initialization.
