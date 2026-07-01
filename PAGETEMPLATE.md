@@ -13,3 +13,13 @@ You will now be learning how to structure your pages correctly.
 
 ## Page creation structure
 To give a name to your page, you just have to define it inside the Module's table.
+
+    local Page = {
+      Name = "Combat"
+    }
+
+    or
+
+    local Page = {}
+    Page.Name = "Combat"
+**Leaving it nameless will have it ignored by Paper.**
