@@ -2,9 +2,9 @@
 	Welcome to Paper Framework!
 
 	Paper is your personal notebook to make organizing your systems simpler and more intuitive.
-	With its page-based structure and simple premise, you can read your systems faster than you can read this documentation.
+	With its page-based structure and simple premise, you'll spend less time searching for code and more time building your game.
 
-	Paper's existence isn't to replace any methods you may find better. If anything, this framework takes traditional methods that WORK, and fixes the problems that come with.
+	Paper doesn't try to reinvent Roblox development. It embraces patterns that already work and focuses on making them cleaner, easier to navigate, and more enjoyable to use.
 
 --------------------------------------------------------------------------------------
 
