@@ -51,4 +51,4 @@ Pages can access each other using Paper:Read("PageName").
 For more information, the functions inside Paper's source code come with instructions.
 Check out other documents!
 
-Recommended: [Template Page Documentation](/docs/PAGETEMPLATE.md)
+Recommended: [Template Page Documentation](docs/PAGETEMPLATE.md)
