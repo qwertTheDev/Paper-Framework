@@ -2,6 +2,8 @@ local PaperFramework = {}
 
 --//Services
 local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ServerStorage = game:GetService("ServerStorage")
 
 --//Constants
 local IsServer = RunService:IsServer()
@@ -26,8 +28,14 @@ function PaperFramework:Init()
 	print("Paper is initializing your", environment, "pages..")
 	
 	if IsServer then
-		script.Server.Name = "PaperServer"
-		script.Server.Parent = game:GetService("ServerScriptService")
+		local Server = script.Server
+		local AssetsServer = script.Assets.Server
+		
+		Server.Name = "PaperServer"
+		Server.Parent = game:GetService("ServerScriptService")
+		
+		AssetsServer.Name = "ServerAssets"
+		AssetsServer.Parent = ServerStorage
 	end
 
 	for _, page in pairs(Pages) do
@@ -48,7 +56,7 @@ function PaperFramework:Start()
 	
 	local environment = IsServer and "Server" or "Client"
 	
-	print("Paper has finished initializing your", environment, "pages!")
+	print("Paper has finished starting your", environment, "pages!")
 	
 	for _, page in pairs(Pages) do
 		if type(page.Start) == "function" then
@@ -145,7 +153,7 @@ end
 	You can store data in Paper's configuration table and use it for your pages.
 ]]
 function PaperFramework:Write(configName : string, configValue)
-	if Config[configName] ~= nil then
+	if Config[configName] ~= nil and Config[configName] == configValue then
 		warn("[Paper] Config", configName, "already exists.")
 		return
 	end
@@ -159,6 +167,37 @@ function PaperFramework:ReadConfig(configName : string)
 	end
 	
 	return Config[configName]
+end
+
+--//Assets
+function PaperFramework:GetAsset(assetName : string, assetCategory : string, inShared : boolean)
+	local function recursiveSearch(parent : Instance, name : string)
+		for _, child in ipairs(parent:GetChildren()) do
+			if child.Name == name then
+				return child
+			end
+			
+			local result = recursiveSearch(child, name)
+			if result then
+				return result
+			end
+		end
+	end
+	
+	local assetFolder
+	
+	if not IsServer or inShared then
+		assetFolder = script.Assets.Shared
+	elseif IsServer then
+		assetFolder = ServerStorage:FindFirstChild("ServerAssets")
+	end
+	
+	if not assetFolder then
+		warn("[Paper] Asset category not found:", assetCategory)
+		return
+	end
+	
+	return recursiveSearch(assetFolder, assetName)
 end
 
 --//Environment Helpers
