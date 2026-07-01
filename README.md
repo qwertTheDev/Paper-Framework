@@ -15,7 +15,7 @@ Paper Framework uses a **Single Script Architecture**.
 
 That means you only need **one server script** and **one client script** to initialize Paper. From there, your pages are loaded automatically and can communicate with one another.
 
->- Instead of looking through dozens of LocalScripts in a ScreenGui, let a page handle that!
+- Instead of looking through dozens of LocalScripts in a ScreenGui, let a page handle that!
 
 > "Hold up... pages?"
 
