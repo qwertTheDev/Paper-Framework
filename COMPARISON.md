@@ -12,7 +12,7 @@
 
 # Module structure
 ## Common practice
-<img width="185" height="143" alt="image" src="https://github.com/user-attachments/assets/6973df92-05b3-4163-8775-553a2e490bb8" />
+<img width="210" height="219" alt="image" src="https://github.com/user-attachments/assets/81adcb75-b414-4a5f-8432-4b077a2bf6f0" />
 <img width="211" height="201" alt="image" src="https://github.com/user-attachments/assets/a778f0c1-7f54-434e-9d75-665a0e0ce557" />
 
 ## Paper Framework
