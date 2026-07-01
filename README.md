@@ -17,7 +17,9 @@ That means you only need **one server script** and **one client script** to init
 
 - Instead of looking through dozens of LocalScripts in a ScreenGui, let a page handle that!
 
+
 > "Hold up... pages?"
+
 
 Yep!
 Around here, ModuleScripts are called **Pages.**
