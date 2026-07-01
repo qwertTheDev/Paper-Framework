@@ -37,11 +37,12 @@ That’s it. No extra setup steps needed.
 
 **But what if my page loads before another?**
 
-Paper only needs three calls to get everything running:
+Paper only needs three calls that happen in exact order:
 
 	Paper:AddAuto() – Registers your default server/client pages
 	Paper:Init() – Prepares dependencies between pages
 	Paper:Start() – Starts execution
+> Pages can already be accessed before Paper starts, but code will only start running at the last step. (that's why you only put game logic in the Start function)
 > You can also organize additional folders using Paper:AddPages(folder)
 
 Pages can access each other using Paper:Read("PageName").
