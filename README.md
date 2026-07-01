@@ -1,10 +1,10 @@
 
 	Welcome to Paper Framework!
 
-	Paper is a module that helps you build your game using a page-based system.
-	Think of it as a notebook where each system in your game is written as a "Page".
+	Paper is your personal notebook to make organizing your systems simpler and more intuitive.
+	With its page-based structure and simple premise, you can read your systems faster than you can read this documentation.
 
-	Paper keeps your systems organized and allows them to communicate cleanly.
+	Paper's existence isn't to replace any methods you may find better. If anything, this framework takes traditional methods that WORK, and fixes the problems that come with.
 
 --------------------------------------------------------------------------------------
 
