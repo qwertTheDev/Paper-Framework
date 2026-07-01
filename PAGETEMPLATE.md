@@ -3,7 +3,7 @@
 Welcome to the **Template Page Document**!
 You will now be learning how to structure your pages correctly.
 
-## The basis
+### The basis
 **Paper separates the Server and Client environments**
 - You can have 2 pages with the same name do different things in different environments.
 > Pages must have unique names in the same environment.
