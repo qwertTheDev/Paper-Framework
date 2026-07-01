@@ -11,15 +11,15 @@
 
 ## Time to get started!
 
-	Paper Framework uses a **Single Script Architecture**.
+Paper Framework uses a **Single Script Architecture**.
 
-	That means you only need **one server script** and **one client script** to initialize Paper. From there, your pages are loaded automatically and can communicate with one another.
+That means you only need **one server script** and **one client script** to initialize Paper. From there, your pages are loaded automatically and can communicate with one another.
 		>- Instead of looking through dozens of LocalScripts in a ScreenGui, let a page handle that!
 
 	> "Hold up... pages?"
 
 	Yep!
-	Around here, ModuleScripts are called **Pages.**
+Around here, ModuleScripts are called **Pages.**
 	
 	Just like pages in a notebook, each one contains a piece of your game. Together, they make up your notebook.
 	Keeping your terminology in theme helps you remember logic.
