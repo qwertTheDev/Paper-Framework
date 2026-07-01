@@ -52,3 +52,5 @@ For more information, the functions inside Paper's source code come with instruc
 Check out other documents!
 
 Recommended: [Template Page Documentation](../docs/PAGETEMPLATE.md), [FAQ](../docs/FAQ.md)
+
+If Paper got you interested, check out comparisons I made between traditional roblox structure and Paper by clicking [here](../docs/COMPARISON.md)
