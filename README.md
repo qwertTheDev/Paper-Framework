@@ -49,4 +49,6 @@ Paper only needs three calls that happen in exact order:
 Pages can access each other using Paper:Read("PageName").
 
 For more information, the functions inside Paper's source code come with instructions.
-Check out the other documents linked!
+Check out other documents!
+
+Recommended: [Template Page Documentation](docs/PAGETEMPLATE.md)
