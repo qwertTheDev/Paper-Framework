@@ -7,7 +7,7 @@ With its page-based structure and simple premise, you'll spend less time searchi
 
 Paper doesn't try to reinvent Roblox development. It uses patterns that already work and focuses on making them cleaner, easier to navigate, and more enjoyable to use.
 
------------------------------------------------------------------------------
+<----------------------------------------------------------------------------->
 
 ## Time to get started!
 
