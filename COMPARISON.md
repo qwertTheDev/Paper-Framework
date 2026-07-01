@@ -30,4 +30,9 @@
 ## Paper Framework
 <img width="915" height="170" alt="image" src="https://github.com/user-attachments/assets/b35c39d2-e63e-42bb-94dc-74f2764a42c9" />
 
+<img width="192" height="184" alt="image" src="https://github.com/user-attachments/assets/d28942f3-ded9-404f-8cce-fa49182eddb6" />
+
+> Paper detects which environment is called the 'GetAssets' function and doesn't let the client access Server assets.
+> Alternatively, the Server can choose between Server or Shared assets.
+
 ### Paper Framework encourages you to separate your assets in categories, using recursive search to make things easier.
