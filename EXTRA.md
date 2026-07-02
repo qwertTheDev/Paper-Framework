@@ -5,4 +5,4 @@
 3. Paper comes with an Assets folder that can be accessed very quick and easily.
 4. Paper has 0 dependencies, it's a plug-and-play module that's ready for use in under a minute!
 
-### Paper Framework's 'Data' Page makes use of the ProfileStore module by loleris. All credits apply to them.
+### Paper Framework's optional 'Data' Page makes use of the ProfileStore module by loleris. All credits apply to them.
