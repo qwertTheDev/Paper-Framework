@@ -5,4 +5,4 @@
 ### A. You definitely can, but those are vastly different from the point of Paper Framework.
 
 ## Q. Is this open source?
-### A. No, the source is very much shy; but you can try taking a look.
+### A. No, the source is very shy. But you can try taking a look.
