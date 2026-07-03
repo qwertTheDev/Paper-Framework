@@ -25,7 +25,7 @@ To give a name to your page, you just have to define it inside the Module's tabl
 **Leaving it nameless will have it ignored by Paper.**
 
 Pages must have Init() and Start() functions in order to work
-but it isn't required **if you have a helper module that doesn't run code by itself.**
+but it isn't required **if making a utility module that doesn't run code by itself.**
 
 A reference to Paper will be passed through the Init function, allowing you to use its functions
 
