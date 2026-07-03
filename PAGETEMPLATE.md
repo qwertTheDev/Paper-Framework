@@ -29,7 +29,7 @@ but it isn't required **if making a utility module that doesn't run code by itse
 
 A reference to Paper will be passed through the Init function, allowing you to use its functions
 
-        function Page:Init(paper)--I
+        function Page:Init(paper)--|
             self.Paper = paper <---|
             self.AnimationHandler = self.Paper:Read("AnimationHandler")
         end
