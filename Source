@@ -152,21 +152,44 @@ end
 	Writes to Paper's configuration table.
 	You can store data in Paper's configuration table and use it for your pages.
 ]]
-function PaperFramework:Write(configName : string, configValue)
-	if Config[configName] ~= nil and Config[configName] == configValue then
-		warn("[Paper] Config", configName, "already exists.")
-		return
+function PaperFramework:Write(configName : string, configValue, overwrite : boolean)
+	local hierarchy = configName:split(".")
+	local currentTable = Config
+	
+	for i = 1, #hierarchy - 1 do
+		local key = hierarchy[i]
+		if not currentTable[key] then
+			currentTable[key] = {}
+		end
+		
+		currentTable = currentTable[key]
 	end
-	Config[configName] = configValue
+	
+	local key = hierarchy[#hierarchy]
+	if tonumber(key) then
+		key = tonumber(key)
+	end
+	
+	if overwrite or currentTable[key] == nil then
+		currentTable[key] = configValue
+	else
+		table.insert(currentTable, key, configValue)
+	end
 end
 
 function PaperFramework:ReadConfig(configName : string)
-	if Config[configName] == nil then
-		warn("[Paper] Config not found:", configName)
-		return
+	local hierarchy = configName:split(".")
+	local currentTable = Config
+	
+	for _, key in ipairs(hierarchy) do
+		currentTable = currentTable[key]
+		
+		if not currentTable then
+			error(("[Paper] Config '%s' not found"):format(configName))
+		end
 	end
 	
-	return Config[configName]
+	return currentTable
 end
 
 --//Assets
