@@ -18,22 +18,22 @@ local Config = {}
 
 function PaperFramework:Init()
 	assert(State == "Idle", "[Paper] Init() can only be called once")
-	
+
 	self:AddPages(script.Shared) -- Loaded automatically
-	
+
 	State = "Initializing"
-	
+
 	local environment = IsServer and "Server" or "Client"
 
 	print("Paper is initializing your", environment, "pages..")
-	
+
 	if IsServer then
 		local Server = script.Server
 		local AssetsServer = script.Assets.Server
-		
+
 		Server.Name = "PaperServer"
 		Server.Parent = game:GetService("ServerScriptService")
-		
+
 		AssetsServer.Name = "ServerAssets"
 		AssetsServer.Parent = ServerStorage
 	end
@@ -41,7 +41,7 @@ function PaperFramework:Init()
 	for _, page in pairs(Pages) do
 		if type(page.Init) == "function" then
 			local success, err = pcall(page.Init, page, self)
-			
+
 			if not success then
 				warn("[Paper] Error initializing page", page.Name, ":", err)
 			end
@@ -51,17 +51,17 @@ end
 
 function PaperFramework:Start()
 	assert(State == "Initializing", "[Paper] Start() can only be called after Init")
-	
+
 	State = "Started"
-	
+
 	local environment = IsServer and "Server" or "Client"
-	
+
 	print("Paper has finished starting your", environment, "pages!")
-	
+
 	for _, page in pairs(Pages) do
 		if type(page.Start) == "function" then
 			local success, err = pcall(page.Start, page)
-			
+
 			if not success then
 				warn("[Paper] Error starting page", page.Name, ":", err)
 			end
@@ -140,11 +140,11 @@ end
 function PaperFramework:AddAuto()
 	local directory = IsServer and "Server" or "Client"
 	local folder = script:FindFirstChild(directory)
-	
+
 	if not folder then
 		return
 	end
-	
+
 	self:AddPages(folder)
 end
 
@@ -155,40 +155,44 @@ end
 function PaperFramework:Write(configName : string, configValue, overwrite : boolean)
 	local hierarchy = configName:split(".")
 	local currentTable = Config
-	
+
 	for i = 1, #hierarchy - 1 do
 		local key = hierarchy[i]
 		if not currentTable[key] then
 			currentTable[key] = {}
 		end
-		
+
 		currentTable = currentTable[key]
 	end
-	
+
 	local key = hierarchy[#hierarchy]
 	if tonumber(key) then
 		key = tonumber(key)
 	end
-	
+
 	if overwrite or currentTable[key] == nil then
 		currentTable[key] = configValue
 	else
-		table.insert(currentTable, key, configValue)
+		table.insert(currentTable[key], configValue)
 	end
 end
 
 function PaperFramework:ReadConfig(configName : string)
 	local hierarchy = configName:split(".")
 	local currentTable = Config
-	
+
 	for _, key in ipairs(hierarchy) do
-		currentTable = currentTable[key]
+		if tonumber(key) then
+			key = tonumber(key)
+		end
 		
+		currentTable = currentTable[key]
+
 		if not currentTable then
 			error(("[Paper] Config '%s' not found"):format(configName))
 		end
 	end
-	
+
 	return currentTable
 end
 
@@ -199,27 +203,29 @@ function PaperFramework:GetAsset(assetName : string, assetCategory : string, inS
 			if child.Name == name then
 				return child
 			end
-			
+
 			local result = recursiveSearch(child, name)
 			if result then
 				return result
 			end
 		end
 	end
-	
+
 	local assetFolder
-	
+
 	if not IsServer or inShared then
 		assetFolder = script.Assets.Shared
 	elseif IsServer then
 		assetFolder = ServerStorage:FindFirstChild("ServerAssets")
 	end
 	
+	assetFolder = assetFolder:FindFirstChild(assetCategory)
+
 	if not assetFolder then
 		warn("[Paper] Asset category not found:", assetCategory)
 		return
 	end
-	
+
 	return recursiveSearch(assetFolder, assetName)
 end
 
