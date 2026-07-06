@@ -37,8 +37,17 @@ function PaperFramework:Init()
 		AssetsServer.Name = "ServerAssets"
 		AssetsServer.Parent = ServerStorage
 	end
-
+	
+	local sortedPages = {}
 	for _, page in pairs(Pages) do
+		table.insert(sortedPages, page)
+	end
+
+	table.sort(sortedPages, function(a, b)
+		return (a.Priority or 0) > (b.Priority or 0)
+	end)
+
+	for _, page in pairs(sortedPages) do
 		if type(page.Init) == "function" then
 			local success, err = pcall(page.Init, page, self)
 
@@ -83,8 +92,6 @@ function PaperFramework:AddPage(pageTemplate)
 	assert(not Pages[pageTemplate.Name],
 		("[Paper] Duplicate page: %s"):format(pageTemplate.Name)
 	)
-
-	pageTemplate.Paper = self
 
 	Pages[pageTemplate.Name] = pageTemplate
 end
@@ -158,10 +165,12 @@ function PaperFramework:Write(configName : string, configValue, overwrite : bool
 
 	for i = 1, #hierarchy - 1 do
 		local key = hierarchy[i]
+		if tonumber(key) then
+			key = tonumber(key)
+		end
 		if not currentTable[key] then
 			currentTable[key] = {}
 		end
-
 		currentTable = currentTable[key]
 	end
 
@@ -173,6 +182,10 @@ function PaperFramework:Write(configName : string, configValue, overwrite : bool
 	if overwrite or currentTable[key] == nil then
 		currentTable[key] = configValue
 	else
+		if type(currentTable[key]) ~= "table" then
+			error(("[Paper] Config '%s' is of type %s, cannot append to it"):format(configName, type(currentTable[key])))
+		end
+		
 		table.insert(currentTable[key], configValue)
 	end
 end
