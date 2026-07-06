@@ -24,10 +24,15 @@ To give a name to your page, you just have to define it inside the Module's tabl
     Page.Name = "Combat"
 **Leaving it nameless will have it ignored by Paper.**
 
-Pages also have an optional Priority field so your pages run in a specific order.
+Pages can also have a Priority field so your pages **are initialized** in a specific order.
 
     local Page = {
         Name = "Combat",
+        Priority = 2
+    }
+
+    local Page = {
+        Name = "StateMachine",
         Priority = 1
     }
 
