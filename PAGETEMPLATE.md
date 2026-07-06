@@ -24,6 +24,13 @@ To give a name to your page, you just have to define it inside the Module's tabl
     Page.Name = "Combat"
 **Leaving it nameless will have it ignored by Paper.**
 
+Pages also have an optional Priority field so your pages run in a specific order.
+
+    local Page = {
+        Name = "Combat",
+        Priority = 1
+    }
+
 Pages must have Init() and Start() functions in order to work
 but it isn't required **if making a utility module that doesn't run code by itself.**
 
